@@ -1,6 +1,9 @@
 export default function Contact() {
-  const number = import.meta.env.VITE_WHATSAPP_NUMBER || "+234 810 132 8963";
-  const whatsapp = `https://wa.me/${number}?text=${encodeURIComponent("Hello Solar Edge, I would like to make an enquiry.")}`;
+  const number = import.meta.env.VITE_WHATSAPP_NUMBER || "2348101328963";
+
+  const whatsapp = `https://wa.me/${number}?text=${encodeURIComponent(
+    "Hello Solar Edge, I would like to make an enquiry."
+  )}`;
 
   return (
     <>
