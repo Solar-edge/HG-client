@@ -10,9 +10,9 @@ export default function About() {
 
 
       <section className="section page-top simple-page">
-        <span className="eyebrow">ABOUT HG ENERGY</span>
+        <span className="eyebrow">ABOUT SOLAR EDGE</span>
         <h1>Energy solutions designed for a more dependable tomorrow.</h1>
-        <p className="lead move">HG Energy and Network Solution helps customers explore practical solar products and energy solutions for homes, businesses and projects.</p>
+        <p className="lead move">Solar Edge helps customers explore practical solar products and energy solutions for homes, businesses and projects.</p>
         <div className="about-grid">
           <article>
             <span><img src={PolicyPicture} alt="Picture of the policy logo" className="policy-pic" /></span>

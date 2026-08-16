@@ -57,7 +57,7 @@ export default function Home() {
 
       <section className="dark-section">
         <div>
-          <span className="eyebrow light">WHY HG ENERGY</span>
+          <span className="eyebrow light">WHY SOLAR EDGE</span>
           <h2>Simple, dependable solar solutions.</h2>
         </div>
         <div className="benefit-grid">
@@ -72,7 +72,7 @@ export default function Home() {
           <span className="eyebrow">LET'S TALK</span>
           <h2>Ready to explore a better energy setup?</h2>
         </div>
-        <Link className="btn btn-dark" to="/contact">Contact HG Energy</Link>
+        <Link className="btn btn-dark" to="/contact">Contact Solar Edge</Link>
       </section>
     </>
   );

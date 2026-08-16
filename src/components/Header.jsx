@@ -19,7 +19,7 @@ export default function Header() {
       <Link to="/" className="brand" onClick={() => setOpen(false)}>
         <img src={CompanyLogo} alt="HG Energy and Network Solution logo" />
         <span>
-          <strong>HG Energy and Network Solution</strong>
+          <strong>Solar Edge</strong>
           <small>Nigeria</small>
         </span>
       </Link>

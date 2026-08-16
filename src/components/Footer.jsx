@@ -12,7 +12,7 @@ export default function Footer() {
     <footer className="footer">
       <div className="footer-inner">
         <div>
-          <h3>HG Energy and Network Solution</h3>
+          <h3>Solar Edge</h3>
           <p>Reliable solar energy solutions that help homes and businesses enjoy clean, affordable, and dependable power every day.</p>
           <div className="address">
             <img src={EmailIcon} alt="An Email Icon" width="30px" />
@@ -43,7 +43,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="footer-bottom">
-        © {new Date().getFullYear()} HG Energy and Network Solution. All rights reserved.
+        © {new Date().getFullYear()} Solar Edge. All rights reserved.
 
         <div className="social-media">
           <a href="https://www.facebook.com/share/19aAjNBAQ1/?mibextid=wwXIfr" className="social-media-links"><img src={FaceBook} alt=""/></a>
@@ -55,7 +55,7 @@ export default function Footer() {
   );
 }
 
-function whatsappLink(message = "Hello HG Energy, I would like to make an enquiry.") {
-  const number = import.meta.env.VITE_WHATSAPP_NUMBER || "2348000000000";
+function whatsappLink(message = "Solar Edge, I would like to make an enquiry.") {
+  const number = import.meta.env.VITE_WHATSAPP_NUMBER || "+2348101328963";
   return `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
 }

@@ -835,6 +835,11 @@ p {
     gap: 30px;
   }
 
+  .stats{
+    display: flex;
+    flex-direction: column;
+  }
+
   .footer-inner {
     grid-template-columns: 1fr 1fr;
   }
@@ -850,6 +855,20 @@ p {
     font-size: 43px;
   }
 
+  .hero-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: -20px;
+    text-align: center;
+  }
+
+  .stats{
+    display: flex;
+    flex-direction: column;
+  }
+
   .hero {
     width: min(100% - 30px, 1280px);
   }
@@ -863,7 +882,7 @@ p {
   }
 
   .hero-art {
-    min-height: 290px;
+    height: 320px;
   }
 
   .panel-shape {

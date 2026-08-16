@@ -1,6 +1,6 @@
 export default function Contact() {
-  const number = import.meta.env.VITE_WHATSAPP_NUMBER || "08101328963";
-  const whatsapp = `https://wa.me/${number}?text=${encodeURIComponent("Hello HG Energy, I would like to make an enquiry.")}`;
+  const number = import.meta.env.VITE_WHATSAPP_NUMBER || "+2348101328963";
+  const whatsapp = `https://wa.me/${number}?text=${encodeURIComponent("Hello Solar Edge, I would like to make an enquiry.")}`;
 
   return (
     <>
@@ -14,7 +14,7 @@ export default function Contact() {
           <a className="btn btn-dark" href={whatsapp}>Chat with us on WhatsApp</a>
         </div>
         <div className="contact-card">
-          <span>HG ENERGY</span>
+          <span>SOLAR EDGE</span>
           <h2>Direct support</h2>
           <p>For product availability, pricing, specifications and project enquiries, WhatsApp is the quickest way to reach the team.</p>
           <a href={whatsapp}>Start a conversation →</a>
