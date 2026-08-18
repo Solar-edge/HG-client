@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import api from "../api.js";
+import { motion } from "motion/react";
 
 export default function Products() {
   const [categories, setCategories] = useState([]);
@@ -34,7 +35,12 @@ export default function Products() {
 
       <link rel="icon" type="image/svg+xml" href="logo.jpeg" />
 
-      <section className="catalogue section page-top">
+      <motion.section
+        className="catalogue section page-top"
+        initial={{ opacity: 0, x: 0 }}
+        animate={{ opacity: 1, y: 10 }}
+        transition={{ duration: 0.9 }}
+      >
         <div className="catalogue-intro">
           <span className="eyebrow">PRODUCTS</span>
           <h1>Solar products for smarter energy.</h1>
@@ -59,7 +65,11 @@ export default function Products() {
                 </div>
                 {items.length ? (
                   <div className="product-grid">
-                    {items.map(product => <ProductCard key={product.id} product={product} />)}
+                    {items.map((product, index) => (<ProductCard
+                      key={product.id}
+                      product={product}
+                      index={index} />
+                    ))}
                   </div>
                 ) : <p className="empty">No products have been added to this category yet.</p>}
               </section>
@@ -67,26 +77,39 @@ export default function Products() {
             {!groups.length && <p className="empty">No categories have been added yet.</p>}
           </div>
         )}
-      </section>
+      </motion.section>
     </>
 
 
   );
 }
 
-function ProductCard({ product }) {
+function ProductCard({ product, index }) {
   return (
-    <Link className="product-card" to={`/products/${product.id}`}>
-      <div className="product-image">
-        {product.imageUrl ? <img src={product.imageUrl} alt={product.name} /> : <span>HG ENERGY</span>}
-        <b className={product.availability ? "available-badge" : "unavailable-badge"}>{product.availability ? "Available" : "Out of stock"}</b>
-      </div>
-      <div className="product-card-body">
-        <span>{product.Category?.name || "Solar Product"}</span>
-        <h3>{product.name}</h3>
-        <p>{product.description || "Reliable solar energy equipment."}</p>
-        <strong>₦{Number(product.price).toLocaleString()}</strong>
-      </div>
-    </Link>
+
+    <motion.div
+      className="product-card"
+      initial={{ oapcity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{
+        duration: 0.6,
+        delay: index * 0.15,
+      }}
+      viewport={{ once: true }}
+    >
+      <Link to={`/products/${product.id}`}>
+        <div className="product-image">
+          {product.imageUrl ? <img src={product.imageUrl} alt={product.name} /> : <span>HG ENERGY</span>}
+          <b className={product.availability ? "available-badge" : "unavailable-badge"}>{product.availability ? "Available" : "Out of stock"}</b>
+        </div>
+        <div className="product-card-body">
+          <span>{product.Category?.name || "Solar Product"}</span>
+          <h3>{product.name}</h3>
+          <p>{product.description || "Reliable solar energy equipment."}</p>
+          <strong>₦{Number(product.price).toLocaleString()}</strong>
+        </div>
+      </Link>
+    </motion.div>
+
   );
 }

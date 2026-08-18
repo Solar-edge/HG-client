@@ -17,11 +17,7 @@ export default function Header() {
   return (
     <header className="site-header">
       <Link to="/" className="brand" onClick={() => setOpen(false)}>
-        <img src={CompanyLogo} alt="HG Energy and Network Solution logo" />
-        <span>
-          <strong>Solar Edge</strong>
-          <small>Nigeria</small>
-        </span>
+        <img src={CompanyLogo} alt="Solar Edge logo" />
       </Link>
 
       <nav className="desktop-nav">

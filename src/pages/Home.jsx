@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { motion } from "motion/react"
 import PanelPicture from '../assets/product 1.jpeg';
 import api from "../api.js";
 
@@ -20,7 +21,12 @@ export default function Home() {
     <>
       <link rel="icon" type="image/svg+xml" href="logo.jpeg" />
 
-      <section className="hero">
+      <motion.div
+        className="hero"
+        initial={{ opacity: 0, x: -80 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.7 }}
+      >
         <div className="hero-content">
           <h1>Where Solar Meets Smart</h1>
           <p>Reliable solar energy solutions that help homes and businesses enjoy clean, affordable, and dependable power every day.</p>
@@ -29,17 +35,36 @@ export default function Home() {
             <Link className="btn btn-light" to="/contact">Talk to Us</Link>
           </div>
         </div>
-        <div className="hero-art" aria-hidden="true">
+        <motion.div
+          className="hero-art"
+          aria-hidden="true"
+          initial={{ opacity: 0, x: 30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+        >
           <img src={PanelPicture} alt="Panel on Gravel pictures" className="hero-image" />
-        </div>
-      </section>
+        </motion.div>
 
-      <section className="trust-strip">
+      </motion.div>
+
+      <motion.div
+        className="trust-strip"
+        initial={{ opacity: 0, y: 60 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1.0 }}
+        viewport={{ once: true }}
+      >
         <span>PRODUCTS FOR</span>
         <strong>Homes</strong><strong>Businesses</strong><strong>Installations</strong><strong>Long-term energy needs</strong>
-      </section>
+      </motion.div>
 
-      <section className="section">
+      <motion.section
+        className="section"
+        initial={{ opacity: 0, y: 60 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.9 }}
+        viewport={{ once: true }}
+      >
         <div className="section-heading">
           <div><span className="eyebrow">OUR CATALOGUE</span><h2>Energy products built around your needs.</h2></div>
           <Link to="/products">View all products →</Link>
@@ -51,45 +76,80 @@ export default function Home() {
         </div>
 
         <div className="product-grid">
-          {products.slice(0, 3).map(product => <ProductPreview key={product.id} product={product} />)}
+          {products.slice(0, 3).map((product, index) => (
+            <ProductPreview
+              key={product.id}
+              product={product}
+              index={index}
+            />
+          ))}
         </div>
-      </section>
+      </motion.section>
 
-      <section className="dark-section">
+      <motion.section
+        className="dark-section"
+        initial={{ opacity: 0, y: 60 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.9 }}
+        viewport={{ once: true }}
+      >
         <div>
           <span className="eyebrow light">WHY SOLAR EDGE</span>
           <h2>Simple, dependable solar solutions.</h2>
         </div>
-        <div className="benefit-grid">
+        <motion.div
+          className="benefit-grid"
+          initial={{ opacity: 0, y: -90 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.5 }}
+          viewport={{ once: true }}
+        >
           <Benefit n="01" title="Quality products" text="A focused catalogue of solar products selected for real-world use." />
           <Benefit n="02" title="Practical guidance" text="We help you understand what fits your energy requirements." />
           <Benefit n="03" title="Direct support" text="Reach the team quickly when you need product or project assistance." />
-        </div>
-      </section>
+        </motion.div>
+      </motion.section>
 
       <section className="cta-section">
-        <div>
+        <motion.div
+          initial={{ opacity: 0, y: -80 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9 }}
+          viewport={{ once: true }}
+        >
           <span className="eyebrow">LET'S TALK</span>
           <h2>Ready to explore a better energy setup?</h2>
-        </div>
+        </motion.div>
         <Link className="btn btn-dark" to="/contact">Contact Solar Edge</Link>
       </section>
     </>
   );
 }
 
-function ProductPreview({ product }) {
+function ProductPreview({ product, index }) {
   return (
-    <Link className="product-card" to={`/products/${product.id}`}>
-      <div className="product-image">
-        {product.imageUrl ? <img src={product.imageUrl} alt={product.name} /> : <span>HG ENERGY</span>}
-      </div>
-      <div className="product-card-body">
-        <span>{product.Category?.name || "Solar Product"}</span>
-        <h3>{product.name}</h3>
-        <strong>₦{Number(product.price).toLocaleString()}</strong>
-      </div>
-    </Link>
+    <motion.div
+      className="product-card"
+      initial={{ oapcity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{
+        duration: 0.6,
+        delay: index * 0.15,
+      }}
+      viewport={{ once: true }}
+    >
+      <Link to={`/products/${product.id}`}>
+        <div className="product-image">
+          {product.imageUrl ? <img src={product.imageUrl} alt={product.name} /> : <span>HG ENERGY</span>}
+        </div>
+        <div className="product-card-body">
+          <span>{product.Category?.name || "Solar Product"}</span>
+          <h3>{product.name}</h3>
+          <strong>₦{Number(product.price).toLocaleString()}</strong>
+        </div>
+      </Link>
+    </motion.div>
+
   );
 }
 

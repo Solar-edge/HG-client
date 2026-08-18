@@ -5,11 +5,16 @@ import TiktokPage from '../assets/tiktok.png';
 import LocationIcon from '../assets/location.png';
 import EmailIcon from '../assets/mail.png';
 import PhoneIcon from '../assets/phone.png';
-
+import { motion } from "motion/react";
 
 export default function Footer() {
   return (
-    <footer className="footer">
+    <motion.footer className="footer"
+      initial={{ opacity: 0, y: 60 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1.0 }}
+      viewport={{ once: true }}
+    >
       <div className="footer-inner">
         <div>
           <h3>Solar Edge</h3>
@@ -46,12 +51,12 @@ export default function Footer() {
         © {new Date().getFullYear()} Solar Edge. All rights reserved.
 
         <div className="social-media">
-          <a href="https://www.facebook.com/share/19aAjNBAQ1/?mibextid=wwXIfr" className="social-media-links"><img src={FaceBook} alt=""/></a>
+          <a href="https://www.facebook.com/share/19aAjNBAQ1/?mibextid=wwXIfr" className="social-media-links"><img src={FaceBook} alt="" /></a>
           <a href="https://www.tiktok.com/@solaregde?_r=1&_t=ZS-98uYhC62B1E" className="social-media-links"><img src={TiktokPage} alt="" /></a>
           <a href="https://www.instagram.com/solar__edge?igsh=MWFza2lxaGdwM3Q2dw%3D%3D&utm_source=qr" className="social-media-links"><img src={InstaGram} alt="" /></a>
         </div>
       </div>
-    </footer>
+    </motion.footer>
   );
 }
 

@@ -565,7 +565,7 @@ p {
 .about-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+  gap: 60px;
   margin-top: 55px;
 }
 
@@ -581,8 +581,14 @@ p {
   border: 1px solid #e3e8ee;
   border-radius: 16px;
   padding: 28px;
+  transition: transform 0.5s ease;
 }
 
+.about-grid article:hover{
+  transform: scale(1.03);
+  box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.15); 
+  
+}
 
 .about-grid span img{
   background:#061633;
@@ -771,7 +777,7 @@ p {
 
 @media (max-width: 850px) {
   main {
-    padding-top: 76px;
+    padding-top: 120px;
   }
 
   .hero {
@@ -883,17 +889,6 @@ p {
 
   .hero-art {
     height: 320px;
-  }
-
-  .panel-shape {
-    width: 220px;
-    height: 125px;
-    left: 8%;
-  }
-
-  .sun {
-    width: 130px;
-    height: 130px;
   }
 
   .product-grid {

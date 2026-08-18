@@ -2,6 +2,8 @@ import PolicyPicture from '../assets/policy.png';
 import VisionPicture from '../assets/vision.png';
 import ScopePicture from '../assets/scope.png';
 import MissionPicture from '../assets/mission.png'
+import { motion } from 'motion/react';
+
 
 export default function About() {
   return (
@@ -9,11 +11,22 @@ export default function About() {
       <link rel="icon" type="image/svg+xml" href="logo.jpeg" />
 
 
-      <section className="section page-top simple-page">
+      <motion.section
+        className="section page-top simple-page"
+        initial={{ opacity: 0, x: 0 }}
+        animate={{ opacity: 1, y: 10 }}
+        transition={{ duration: 0.9 }}
+      >
         <span className="eyebrow">ABOUT SOLAR EDGE</span>
         <h1>Energy solutions designed for a more dependable tomorrow.</h1>
         <p className="lead move">Solar Edge helps customers explore practical solar products and energy solutions for homes, businesses and projects.</p>
-        <div className="about-grid">
+        <motion.div
+          className="about-grid"
+          initial={{ opacity: 0, y: 80 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.4 }}
+          viewport={{ once: true }}
+        >
           <article>
             <span><img src={PolicyPicture} alt="Picture of the policy logo" className="policy-pic" /></span>
             <h2>Company Policy</h2>
@@ -34,15 +47,21 @@ export default function About() {
             <h2>Scope Of Services</h2>
             <p>Solar Edge provides solar-energy solutions such as Solar Power Installation, Inverter Solutions, Solar Battery Solutions, Solar Panel Solutions, Residential Solar Solutions, Commercial Solar Solutions, Solar System Mentainance, Solar System repairs and upgrades, Energy Consultations and System Designs, After-sales Technical Support for residential, commercial, and other eligible applications</p>
           </article>
-        </div>
+        </motion.div>
 
-        <div className="commitment-div">
+        <motion.div
+          className="commitment-div"
+          initial={{ opacity: 0, y: 80 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.4 }}
+          viewport={{ once: true }}
+        >
           <span className="eyebrow commitment-head">Our Commitment</span>
           <p className='commitment-p'>At Solar Edge, we believe that access to reliable electricity should be smarter, cleaner, and more sustainable. We don't just install solar systems, we provide dependable energy solutions designed for the future. Solar Edge - Powering a Brighter Future.</p>
-        </div>
+        </motion.div>
 
 
-      </section>
+      </motion.section>
     </>
 
   );
